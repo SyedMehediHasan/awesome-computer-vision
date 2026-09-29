@@ -12,7 +12,7 @@ from config import CATEGORIES, GITHUB_SEARCH_URL, RESULTS_PER_CATEGORY
 
 
 PROJECT_DIR = Path(__file__).resolve().parent
-PROJECT_PATH = PROJECT_DIR / "PROJECT.md"
+README_PATH = PROJECT_DIR / "README.md"
 PLACEHOLDER_TOKEN = "your_github_personal_access_token_here"
 
 
@@ -86,13 +86,18 @@ def render_repository_table(repositories):
     return "\n".join(lines)
 
 
-def build_project(results):
+def build_readme(results):
     generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines = [
         "# Awesome Computer Vision Repositories",
         "",
         "A curated directory of popular, Python-based computer vision tools and libraries, "
         "collected from GitHub repository topics.",
+        "",
+        "## Documentation Navigation",
+        "",
+        "- [Recommended Tools & Platforms](TOOL.md)",
+        "- [Python Computer Vision Libraries](library.md)",
         "",
         f"Generated: {generated_at}",
         "",
@@ -144,8 +149,8 @@ def main():
                     results[(category, subcategory)] = ([], str(error))
                     print(f"Failed: {category} / {subcategory}: {error}")
 
-    PROJECT_PATH.write_text(build_project(results), encoding="utf-8")
-    print(f"\nProject overview written to {PROJECT_PATH}")
+    README_PATH.write_text(build_readme(results), encoding="utf-8")
+    print(f"\nREADME written to {README_PATH}")
 
 
 if __name__ == "__main__":

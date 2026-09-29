@@ -2,6 +2,11 @@
 
 A curated directory of popular, Python-based computer vision tools and libraries, collected from GitHub repository topics.
 
+## Documentation Navigation
+
+- [Recommended Tools & Platforms](TOOL.md)
+- [Python Computer Vision Libraries](library.md)
+
 Generated: 2026-09-29 17:54 UTC
 
 ## Table of Contents
